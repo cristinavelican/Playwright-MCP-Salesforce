@@ -15,6 +15,7 @@ import {LoginPage} from '../pages/login_page.js';
 const encryptedPassword = process.env.SF_ENCRYPTED_PASSWORD;
 
 const getDecryptedPassword = () => {
+
   return new Promise((resolve, reject) => {
     if (!encryptedPassword) {
       fs.readFile('encrypted_password.txt', 'utf8', (err, encryptedPassword) => {
@@ -33,11 +34,9 @@ const getDecryptedPassword = () => {
     });
     }
     else {
-      console.log("AM I IN HERE?")
-      console.log(encryptedPassword)
+
       const bytes = AES.decrypt(encryptedPassword, encryptionKey);
       const decryptedPassword = bytes.toString(Utf8);
-      console.log("Decrypted password:", decryptedPassword);
       resolve(decryptedPassword);
     }
     
