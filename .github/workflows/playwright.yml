@@ -11,6 +11,9 @@ jobs:
     environment: staging
     env:
       SF_ENCRYPTED_PASSWORD: ${{ secrets.ENCRYPTED_PASSWORD }}
+      SF_USERNAME: ${{ secrets.SF_USERNAME }}
+      SF_BASE_URL: ${{ vars.SF_BASE_URL }}
+      ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +21,13 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+    - name: Cache node modules
+      uses: actions/cache@v4
+      with:
+          path: node_modules
+          key: deps-node-module-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
