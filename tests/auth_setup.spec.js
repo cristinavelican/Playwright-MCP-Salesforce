@@ -33,8 +33,11 @@ const getDecryptedPassword = () => {
     });
     }
     else {
+      console.log("AM I IN HERE?")
+      console.log(encryptedPassword)
       const bytes = AES.decrypt(encryptedPassword, encryptionKey);
       const decryptedPassword = bytes.toString(Utf8);
+      console.log("Decrypted password:", decryptedPassword);
       resolve(decryptedPassword);
     }
     
@@ -42,7 +45,6 @@ const getDecryptedPassword = () => {
 };
 
 setup("login to Salesforce", async ({page}) => {
-  console.log("AM I HERE?")
   
   const loginPage = new LoginPage(page);
   
