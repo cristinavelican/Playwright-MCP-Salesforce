@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.3.0"
+  },
+  "scripts": {},
+  "dependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "axios": "^1.7.7",
+    "crypto-js": "^4.2.0",
+    "csv": "^6.3.9",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.6.1",
+    "lighthouse": "^12.2.1",
+    "moment": "^2.30.1"
+  }
+}
