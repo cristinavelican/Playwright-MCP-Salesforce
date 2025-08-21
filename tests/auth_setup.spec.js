@@ -12,10 +12,12 @@ const crypto = require('crypto-js');
 import AES from 'crypto-js/aes';
 import Utf8 from 'crypto-js/enc-utf8';
 import {LoginPage} from '../pages/login_page.js';
+const encryptedPassword = process.env.SF_ENCRYPTED_PASSWORD;
 
 const getDecryptedPassword = () => {
   return new Promise((resolve, reject) => {
-    fs.readFile('encrypted_password.txt', 'utf8', (err, encryptedPassword) => {
+    if (!encryptedPassword) {
+      fs.readFile('encrypted_password.txt', 'utf8', (err, encryptedPassword) => {
       if (err) {
         reject('Error reading the encrypted password file: ' + err);
         return;
@@ -29,6 +31,8 @@ const getDecryptedPassword = () => {
     
       resolve(decryptedPassword);
     });
+    }
+    
   });
 };
 
