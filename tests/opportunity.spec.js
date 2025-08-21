@@ -2,12 +2,12 @@
 import { test } from '@playwright/test';
 test.use({ storageState: 'playwright/.auth/user.json' });
 
-test('test', async ({ page }) => {
+test('test', async ({ page }, testInfo) => {
   console.log("My logs:")
   console.log(process.env.SF_BASE_URL);
   await page.goto('/'); // or your app's home page
 
-  await page.screenshot({ path: 'debug.png', fullPage: true });
+  //await page.screenshot({ path: 'debug.png', fullPage: true });
   await page.getByRole('link', { name: 'Opportunities' }).click();
   await page.getByRole('button', { name: 'New' }).click();
   await page.getByRole('textbox', { name: 'Amount' }).fill('');

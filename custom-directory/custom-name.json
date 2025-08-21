@@ -1,0 +1,44 @@
+{
+  "reportFormat": "CTRF",
+  "specVersion": "0.0.0",
+  "reportId": "93eb21be-1c1f-443d-a5db-c8b02677491f",
+  "timestamp": "2025-08-21T15:43:28.136Z",
+  "generatedBy": "playwright-ctrf-json-reporter",
+  "results": {
+    "tool": {
+      "name": "playwright"
+    },
+    "summary": {
+      "tests": 1,
+      "passed": 1,
+      "failed": 0,
+      "pending": 0,
+      "skipped": 0,
+      "other": 0,
+      "start": 1755791009337,
+      "stop": 1755791017690,
+      "suites": 0
+    },
+    "tests": [
+      {
+        "name": "test",
+        "status": "passed",
+        "duration": 7063
+      }
+    ],
+    "environment": {
+      "appName": "MyApp",
+      "appVersion": "1.0.0",
+      "osPlatform": "linux",
+      "osRelease": "18.04",
+      "osVersion": "5.4.0",
+      "buildName": "MyApp Build",
+      "buildNumber": "100",
+      "buildUrl": "https://ctrf.io",
+      "repositoryName": "ctrf-json",
+      "repositoryUrl": "https://gh.io",
+      "branchName": "main",
+      "testEnvironment": "staging"
+    }
+  }
+}
