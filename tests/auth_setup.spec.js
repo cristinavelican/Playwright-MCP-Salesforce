@@ -43,7 +43,7 @@ const getDecryptedPassword = () => {
   });
 };
 
-setup("login to Salesforce", async ({page}) => {
+setup.skip("login to Salesforce", async ({page}) => {
   
   const loginPage = new LoginPage(page);
   

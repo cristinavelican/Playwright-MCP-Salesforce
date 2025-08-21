@@ -23,8 +23,10 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html'],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+      ['playwright-ctrf-json-reporter']
+  ],
   use: {
     baseURL: process.env.SF_BASE_URL, 
     storageState: 'playwright/.auth/user.json', // Path to the storage state file
