@@ -25,7 +25,11 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html'],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-      ['playwright-ctrf-json-reporter']
+      ['playwright-ctrf-json-reporter'], {
+        screenshot: true,
+        testType: 'e2e',
+        osPlatform: 'linux', 
+      }
   ],
   use: {
     baseURL: process.env.SF_BASE_URL, 

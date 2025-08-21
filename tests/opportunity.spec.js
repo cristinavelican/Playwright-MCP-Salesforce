@@ -17,6 +17,11 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: '*Close Date' }).click();
   await page.getByRole('button', { name: '12' }).click();
   await page.getByRole('combobox', { name: 'Stage' }).click();
+  const screenshot = await page.screenshot({ quality: 50, type: 'jpeg' })
+  await testInfo.attach('screenshot', {
+    body: screenshot,
+    contentType: 'image/jpeg',
+  })
  // await page.getByText('Prospecting').dblclick();
   //await page.getByRole('textbox', { name: 'Probability (%)' }).fill('10');
   //await page.getByRole('combobox', { name: 'Lead Source' }).click();
